@@ -1,0 +1,34 @@
+%% https://raw.githubusercontent.com/artificial-max/polcla/master/polcla/src/main/resources/dictionaries/germanlex.txt
+%% https://raw.githubusercontent.com/artificial-max/polcla/master/polcla/src/main/resources/dictionaries/intensifier_lex.txt
+abschwächen
+äußerst
+besonders
+bleiben
+enorm
+erheblich
+extrem
+exzeptionell
+fast
+förmlich
+groß
+intensiv
+leicht
+maximal
+mehrheitlich
+recht
+richtig
+sehr
+ständig
+steigern
+tatsächlich
+unglaublich
+unvermindert
+verdammt
+vermindern
+viel
+völlig
+wenig
+weniger
+wirklich
+ziemlich
+zusätzlich
