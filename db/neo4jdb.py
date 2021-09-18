@@ -2,7 +2,7 @@ from neomodel import DoesNotExist, db, StructuredNode, StringProperty, UniqueIdP
     FloatProperty, StructuredRel
 from datetime import datetime
 
-db.set_connection('bolt://user:pw@localhost:7687')
+db.set_connection('bolt://user:pw@127.0.0.1:7687')
 
 
 def clear_db():
