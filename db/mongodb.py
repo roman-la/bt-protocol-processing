@@ -3,7 +3,7 @@ import pymongo
 
 class MongoDB:
     def __init__(self):
-        self.connection = pymongo.MongoClient('mongodb://user:pw@141.45.146.163:27017')
+        self.connection = pymongo.MongoClient('mongodb://user:pw@127.0.0.1:27017')
         self.database = self.connection['protocols']
 
     def __del__(self):
