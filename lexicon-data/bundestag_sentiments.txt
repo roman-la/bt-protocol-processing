@@ -215,3 +215,6 @@ zulasten -0.1
 zusammenarbeiten 0.2
 zwischenrufen -0.3
 zynismus -0.3
+aussitzen,-0.2
+Eigenlob,-0.5
+bravo,0.2

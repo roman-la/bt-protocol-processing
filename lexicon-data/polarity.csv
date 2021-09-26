@@ -1584,7 +1584,7 @@ dankempfindung,0.9333333333333332
 danken,0.5636666666666666
 dankeschön,0.7333333333333334
 dankeswort,0.7333333333333334
-dank,0.9333333333333332
+dank,0.5
 danksagen,0.7250000000000001
 danksagung,0.8
 darben,-0.9333333333333332
@@ -1745,7 +1745,6 @@ dynamisch,0.701
 ebenmäßig,0.65
 ebenmäßigkeit,0.65
 eberesche,0.0
-echt,0.9333333333333332
 echtheit,0.701
 eckbank,0.0
 edel,0.680875
@@ -1787,7 +1786,6 @@ eiförmig,0.0
 eifrig,0.626
 eigenartig,-0.5761999999999999
 eigenbrötelei,-0.6666666666666666
-eigenlob,0.9333333333333332
 eigennützig,-0.9333333333333332
 eigenregie,0.7333333333333334
 eigensinnig,-0.8333333333333334
@@ -4637,7 +4635,6 @@ naturarzt,0.0
 naturgenuss,0.9333333333333332
 naturkundlich,0.0
 naturlehre,0.0
-natürlich,0.8333333333333334
 naturrecht,0.7333333333333334
 naturschönheit,0.8333333333333334
 naturschutzaktion,0.8333333333333334
@@ -8318,7 +8315,6 @@ wolkenkratzer,0.0
 wolkenlos,0.6666666666666666
 wolkenwand,-0.8
 wolkig,-0.75
-wollen,0.8333333333333334
 wollust,-0.9333333333333332
 wonne,0.9333333333333332
 wortart,0.0
@@ -9570,7 +9566,6 @@ demagogie,-0.85
 bänderriß,-1.0
 anreichern,0.46799999999999997
 herbeizitieren,-0.7
-aussitzen,1.0
 fehleinschätzen,-0.7
 plackerei,-1.0
 widerstand,-1.0
@@ -9721,7 +9716,6 @@ einschläfern,-1.0
 mitleidlosigkeit,-0.85
 eintrichtern,-0.7
 beschiß,-1.0
-bravo,0.85
 missdeuten,-0.85
 technologiefeindlichkeit,-1.0
 brandursache,-0.85
@@ -18893,7 +18887,6 @@ abserbeln,-0.9333333333333332
 daniederliegen,-0.9333333333333332
 Dampfbad,0.0
 Nebelbad,0.0
-Dank,0.7333333333333334
 Dankeschön,0.7333333333333334
 Dankfest,0.9333333333333332
 Danksagung,0.9333333333333332
@@ -19347,7 +19340,6 @@ realiter,0.9333333333333332
 tatsächlich,0.9333333333333332
 anschaulich,0.9333333333333332
 fassbar,0.9333333333333332
-eigentlich,0.9333333333333332
 gegenständlich,0.9333333333333332
 anwendungsbezogen,0.9333333333333332
 gelebt,0.9333333333333332
@@ -19460,7 +19452,6 @@ beflissen,0.626
 eigen,-0.5761999999999999
 idiosynkratisch,-0.5761999999999999
 übernatürlich,-0.5761999999999999
-Eigenlob,0.9333333333333332
 Selbstlob,0.9333333333333332
 Eigenwerbung,0.9333333333333332
 Eigenreklame,0.9333333333333332
@@ -21933,7 +21924,6 @@ synonymisch,0.0
 homosem,0.0
 schwunglos,-0.5859
 antriebslos,-0.5859
-eben,0.75
 wellenlos,0.75
 topfeben,0.75
 planar,0.75
@@ -25591,7 +25581,6 @@ vielzählig,0.7904249999999999
 massig,0.7904249999999999
 waggonweise,0.7904249999999999
 abundant,0.7904249999999999
-zuhauf,0.7904249999999999
 reihenweise,0.7904249999999999
 massenweise,0.7904249999999999
 viele,0.7904249999999999

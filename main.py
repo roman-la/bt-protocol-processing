@@ -3,6 +3,7 @@ from mdb_processing import MdbProcessing
 from db.mongodb import MongoDB
 import comment_processing
 from db import neo4jdb
+import pagerank_processing
 
 mdbs = MdbProcessing()
 
@@ -22,3 +23,4 @@ neo4jdb.clear_db()
 neo4jdb.setup_factions()
 neo4jdb.insert_mdbs(mdbs.mdbs)
 neo4jdb.insert_comments(comments)
+pagerank_processing.write_pagerank()

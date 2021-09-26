@@ -15,7 +15,7 @@ class MdbProcessing:
         self.mdbs = self.__process_xml()
         self.titles = self.__get_titles()
 
-        # Important for filtering out titles. E.g. 'Dr. h. c.' will leave 'h. c.' if 'Dr.' appears first in list.
+        # Important for filtering out titles. E.g. 'Dr. h. c.' will leave 'h. c.' if 'Dr.' appears first in list
         self.titles.sort(reverse=True)
 
     def get_mdb_by_name(self, name):
@@ -23,15 +23,17 @@ class MdbProcessing:
             name = name.replace(title, '').strip()
 
         for mdb in self.mdbs:
-            for n in mdb['names']:
-                if n[0] + ' ' + n[1] == name:
+            mdb_id, mdb_aliases, mdb_periods = mdb
+            for mdb_alias in mdb_aliases:
+                if f'{mdb_alias[0]} {mdb_alias[1]}' == name:
                     return mdb
 
         print('Could not resolve name: ' + name)
 
     def get_mdb_by_id(self, id_):
         for mdb in self.mdbs:
-            if mdb['id'] == id_:
+            mdb_id, _, _ = mdb
+            if mdb_id == id_:
                 return mdb
 
         print('Could not resolve id: ' + id_)
@@ -45,44 +47,47 @@ class MdbProcessing:
         root = ElementTree.fromstring(self.xml)
 
         mdbs = []
-        for mdb in root.iter('MDB'):
-            mdb_id = mdb.find('ID').text
+        for mdb_xml in root.iter('MDB'):
+            mdb_id = mdb_xml.find('ID').text
 
-            names = []
-            for name in mdb.find('NAMEN').iter('NAME'):
+            mdb_aliases = []
+            for name in mdb_xml.find('NAMEN').iter('NAME'):
                 first_name = name.find('VORNAME').text
                 last_name = name.find('NACHNAME').text
                 if name.find('PRAEFIX').text:
                     last_name = name.find('PRAEFIX').text + ' ' + last_name
                 if name.find('ADEL').text:
                     last_name = name.find('ADEL').text + ' ' + last_name
-                from_date = name.find('HISTORIE_VON').text
-                to_date = name.find('HISTORIE_BIS').text
-                names.append((first_name, last_name, from_date, to_date))
+                mdb_aliases.append((first_name, last_name, name.find('HISTORIE_BIS').text))
 
-            for period in mdb.iter('WAHLPERIODE'):
+            if not mdb_aliases:
+                raise NotImplementedError(mdb_id)
+
+            mdb_periods = []
+            for period in mdb_xml.iter('WAHLPERIODE'):
+                period_id = period.find('WP').text
+
                 for faction in period.iter('INSTITUTION'):
+                    if faction.find('INSART_LANG').text != 'Fraktion/Gruppe':
+                        continue
+
                     faction_name = faction.find('INS_LANG').text
+                    if faction_name in faction_name_mapping:
+                        faction_name = faction_name_mapping[faction_name]
+
                     part_of_faction_from = faction.find('MDBINS_VON').text
                     part_of_faction_to = faction.find('MDBINS_BIS').text
 
                     if not part_of_faction_from:
-                        part_of_faction_from = period.find('MDBWP_VON').text
+                        continue
 
-                    if not part_of_faction_to:
-                        part_of_faction_to = period.find('MDBWP_BIS').text
+                    mdb_periods.append((period_id, faction_name, part_of_faction_from, part_of_faction_to))
 
-                    if faction_name in faction_name_mapping.keys():
-                        faction_name = faction_name_mapping[faction_name]
+            if not mdb_periods:
+                continue
 
-                    mdbs.append({
-                        'id': mdb_id,
-                        'names': names,
-                        'faction': faction_name,
-                        'period': period.find('WP').text,
-                        'from': part_of_faction_from,
-                        'to': part_of_faction_to
-                    })
+            mdbs.append((mdb_id, mdb_aliases, mdb_periods))
+
         return mdbs
 
     def __get_titles(self):
