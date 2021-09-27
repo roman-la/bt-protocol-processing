@@ -23,6 +23,8 @@ pipenv install
 .\.venv\bin\python -m spacy download de_core_news_sm
 ```
 
+3. Setup Neo4j Graph Data Science Library by following https://neo4j.com/docs/graph-data-science/current/installation/neo4j-server/
+
 ## Run
 
 In the projects root folder run:
