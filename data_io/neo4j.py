@@ -1,8 +1,8 @@
 from neomodel import DoesNotExist, db
 from datetime import datetime
-from db.neo4j_models.comment import Comment
-from db.neo4j_models.faction import Faction
-from db.neo4j_models.mdb import Mdb
+from data_io.models.comment import Comment
+from data_io.models.faction import Faction
+from data_io.models.mdb import Mdb
 
 db.set_connection('bolt://user:pw@127.0.0.1:7687')
 
@@ -70,7 +70,7 @@ def insert_comments(comments):
             speaker_neo4j = Mdb.nodes.get(mdb_id=speaker[0])
             commenter_neo4j = Mdb.nodes.get(mdb_id=commenter[0])
         except DoesNotExist:
-            # Probably formal mdbs
+            # Probably formal mdbs (see e.g. Zypries in 19. WP)
             continue
 
         comment_neo4j = Comment(text=comment, polarity=polarity).save()

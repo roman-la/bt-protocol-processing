@@ -5,7 +5,7 @@ nlp = spacy.load('de_core_news_sm')
 
 def get_polarity_lexicon():
     polarities = {}
-    with open('lexicon-data/polarity.csv', 'r', encoding='utf-8') as f:
+    with open('data/polarity.csv', 'r', encoding='utf-8') as f:
         for line in f.read().splitlines():
             if line.startswith('%%'):
                 continue
@@ -16,7 +16,7 @@ def get_polarity_lexicon():
 
 def get_intensifier_lexicon():
     intensifiers = []
-    with open('lexicon-data/intensifiers_raw.txt', 'r', encoding='utf-8') as f:
+    with open('data/intensifiers_raw.txt', 'r', encoding='utf-8') as f:
         for line in f.read().splitlines():
             if line.startswith('%%'):
                 continue
@@ -27,7 +27,7 @@ def get_intensifier_lexicon():
 
 def get_negation_lexicon():
     negations = {}
-    with open('lexicon-data/negations_raw.txt', 'r', encoding='utf-8') as f:
+    with open('data/negations_raw.txt', 'r', encoding='utf-8') as f:
         for line in f.read().splitlines():
             if line.startswith('%%'):
                 continue

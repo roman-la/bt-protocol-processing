@@ -1,7 +1,7 @@
 import spacy
 from spacy.tokens import Doc, Span, Token
 from spacy.language import Language
-import lexicons
+from lexicon import lexicons
 
 Doc.set_extension('polarity', default=0.0)
 Span.set_extension('polarity', default=0.0)
@@ -16,8 +16,8 @@ negation_lexicon = lexicons.get_negation_lexicon()
 intensifier_lexicon = lexicons.get_intensifier_lexicon()
 
 
-def get_comment_polarity(text):
-    return nlp(text)._.polarity
+def get_comment_polarity(comment):
+    return nlp(comment)._.polarity
 
 
 @Language.component('normalization')

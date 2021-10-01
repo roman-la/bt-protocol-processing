@@ -1,5 +1,5 @@
 from neomodel import StructuredNode, StringProperty, FloatProperty, RelationshipTo, StructuredRel
-from db.neo4j_models.mdb import Mdb
+from data_io.models.mdb import Mdb
 
 
 class Comment(StructuredNode):

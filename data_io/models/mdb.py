@@ -1,6 +1,6 @@
 from neomodel import StructuredNode, UniqueIdProperty, StringProperty, RelationshipTo
-from db.neo4j_models.faction import Faction
-from db.neo4j_models.member_rel import MemberRel
+from data_io.models.faction import Faction
+from data_io.models.member_rel import MemberRel
 
 
 class Mdb(StructuredNode):

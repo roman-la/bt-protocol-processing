@@ -1,7 +1,7 @@
 import pymongo
 
 
-class MongoDB:
+class Mongo:
     def __init__(self):
         self.connection = pymongo.MongoClient('mongodb://user:pw@127.0.0.1:27017')
         self.database = self.connection['protocols']

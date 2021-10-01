@@ -40,7 +40,7 @@ class MdbProcessing:
 
     @staticmethod
     def __download_xml():
-        with open('samples/MDB_STAMMDATEN.XML', 'r', encoding='utf-8') as f:
+        with open('../samples/MDB_STAMMDATEN.XML', 'r', encoding='utf-8') as f:
             return ''.join(f.read())
 
     def __process_xml(self):

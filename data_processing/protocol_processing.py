@@ -2,7 +2,7 @@ import re
 from xml.etree import ElementTree
 
 
-def process(protocols):
+def get_comments_from_protocols(protocols):
     speeches = __get_speeches(protocols)
     comments = __get_comments(speeches)
     return comments
@@ -33,10 +33,6 @@ def __get_comments(speeches):
         raw_comment = raw_comment.replace('­', '')
 
         for part in raw_comment.split(' – '):
-            # TODO: prettier?
-            if 'Gegenruf' in part:
-                continue
-
             if ']: ' in part:
                 comment = part.split(':')[1].strip()
                 commenter = part.split('[')[0].strip().replace('Freiherr', 'Frhr.')  # TODO: prettier?

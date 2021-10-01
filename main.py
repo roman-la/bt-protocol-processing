@@ -1,16 +1,18 @@
-import protocol_processing
-from mdb_processing import MdbProcessing
-from db.mongodb import MongoDB
-import comment_processing
-from db import neo4jdb
-import pagerank_processing
+from data_processing.mdb_processing import MdbProcessing
+from data_io.mongo import Mongo
+from data_io import neo4j
+from data_processing import graph_processing, comment_processing, protocol_processing
 
+# Setup mdb processing
 mdbs = MdbProcessing()
 
-protocols = MongoDB().get_collection_documents()
+# Get raw protocols from db
+protocols = Mongo().get_collection_documents()
 
-raw_comments = protocol_processing.process(protocols)
+# Extract raw comments
+raw_comments = protocol_processing.get_comments_from_protocols(protocols)
 
+# Process comments
 comments = []
 for (session_id, speaker_id, comment, commenter_name) in raw_comments:
     speaker = mdbs.get_mdb_by_id(speaker_id)
@@ -19,8 +21,12 @@ for (session_id, speaker_id, comment, commenter_name) in raw_comments:
         polarity = comment_processing.get_comment_polarity(comment)
         comments.append((session_id, speaker, commenter, comment, polarity))
 
-neo4jdb.clear_db()
-neo4jdb.setup_factions()
-neo4jdb.insert_mdbs(mdbs.mdbs)
-neo4jdb.insert_comments(comments)
-pagerank_processing.write_pagerank()
+# Insert mdbs and comments into db
+neo4j.clear_db()
+neo4j.setup_factions()
+neo4j.insert_mdbs(mdbs.mdbs)
+neo4j.insert_comments(comments)
+
+# Graph analysis
+graph_processing.apply_pagerank()
+graph_processing.apply_eigenvector()
