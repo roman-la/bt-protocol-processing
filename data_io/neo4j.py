@@ -4,7 +4,7 @@ from data_io.models.comment import Comment
 from data_io.models.faction import Faction
 from data_io.models.mdb import Mdb
 
-db.set_connection('bolt://user:pw@127.0.0.1:7687')
+db.set_connection('bolt://user:pw@localhost:7687')
 
 
 def clear_db():
