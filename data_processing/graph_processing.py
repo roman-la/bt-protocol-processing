@@ -34,4 +34,7 @@ def apply_eigenvector():
 
 
 def __delete_graph(graph_name):
-    db.cypher_query(f'CALL gds.graph.drop("{graph_name}")')
+    try:
+        db.cypher_query(f'CALL gds.graph.drop("{graph_name}")')
+    except:
+        pass
