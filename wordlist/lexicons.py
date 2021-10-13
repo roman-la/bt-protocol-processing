@@ -19,9 +19,9 @@ class Lexicons:
         # for word in self.negation_lexicon:
         # self.polarity_lexicon.pop(word, None)
 
-        # Remove not relevant words from polarity lexicon
-        for word in get_irrelevant_words():
-            self.polarity_lexicon.pop(word)
+        # Apply custom corrections
+        for word, polarity in get_corrections().items():
+            self.polarity_lexicon[word] = polarity
 
 
 def get_polarity_lexicon():
@@ -68,9 +68,14 @@ def get_negation_lexicon():
     return negations
 
 
-def get_irrelevant_words():
-    with open(os.path.dirname(__file__) + '/data/ignore_words.txt', 'r', encoding='utf-8') as f:
-        return f.read().splitlines()
+def get_corrections():
+    corrections = {}
+    with open(os.path.dirname(__file__) + '/data/corrections.txt', 'r', encoding='utf-8') as f:
+        for line in f.read().splitlines():
+            word = line.split(' ')[0]
+            polarity = float(line.split(' ')[1])
+            corrections[word] = polarity
+    return corrections
 
 
 def __lemmatization(word):

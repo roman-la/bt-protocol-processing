@@ -1,6 +1,6 @@
 import data_processing.comment_processing as cp
 
-text = 'Das ist ja nicht verboten ich!'
+text = 'Abschalten'
 
 doc = cp.nlp(text)
 

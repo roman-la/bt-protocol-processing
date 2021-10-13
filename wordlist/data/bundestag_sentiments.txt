@@ -219,3 +219,4 @@ eigenlob -0.5
 bravo 0.2
 beteiligen 0.1
 nein -0.1
+aktionismus -0.2

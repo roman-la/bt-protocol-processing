@@ -111,7 +111,7 @@ def __polarity_calculation(doc):
     doc_length = sum([1 for token in doc if token.pos_ != 'PUNCT'])
 
     # Calculate doc polarity with min-max-scaling
-    if doc_length > 0:
+    if doc_length > 1:
         if doc._.polarity > 0.0:
             doc._.polarity = (doc._.polarity + 1.0) / (doc_length + 1.0)
         elif doc._.polarity < 0.0:
