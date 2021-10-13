@@ -97,8 +97,8 @@ def __polarity_calculation(doc):
             continue
 
         if token._.negated:
-            token._.polarity = (-1.0) * polarity_lexicon[token.lemma_]
-        if token._.intensified:
+            token._.polarity = (-1) * polarity_lexicon[token.lemma_]
+        elif token._.intensified:
             token._.polarity = 1.5 * polarity_lexicon[token.lemma_]
         else:
             token._.polarity = polarity_lexicon[token.lemma_]

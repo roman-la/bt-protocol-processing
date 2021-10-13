@@ -19,6 +19,10 @@ class Lexicons:
         # for word in self.negation_lexicon:
         # self.polarity_lexicon.pop(word, None)
 
+        # Remove not relevant words from polarity lexicon
+        for word in get_irrelevant_words():
+            self.polarity_lexicon.pop(word)
+
 
 def get_polarity_lexicon():
     words = {}
@@ -62,6 +66,11 @@ def get_negation_lexicon():
             pos = pos.strip()
             negations[word] = [scope, pos]
     return negations
+
+
+def get_irrelevant_words():
+    with open(os.path.dirname(__file__) + '/data/ignore_words.txt', 'r', encoding='utf-8') as f:
+        return f.read().splitlines()
 
 
 def __lemmatization(word):
