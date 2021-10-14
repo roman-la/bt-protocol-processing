@@ -1,6 +1,6 @@
 import data_processing.comment_processing as cp
 
-text = 'Abschalten'
+text = 'Möglichst wenig Antworten!'
 
 doc = cp.nlp(text)
 

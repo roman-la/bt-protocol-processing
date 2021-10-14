@@ -10289,7 +10289,6 @@ verfassungsfeste -1.0
 verbraucherpolitisch 0.0
 schlagkraeftige -1.0
 vergeblich -0.5024
-` 1.0
 finanzund 0.0
 sozialpolitscher 0.0
 aegyptisch 0.0
