@@ -17,7 +17,7 @@ comments = []
 for (session_id, speaker_id, comment, commenter_name) in raw_comments:
     speaker = mdbs.get_mdb_by_id(speaker_id)
     commenter = mdbs.get_mdb_by_name(commenter_name)
-    if speaker and commenter:
+    if speaker and commenter and speaker != commenter:
         polarity = comment_processing.get_comment_polarity(comment)
         comments.append((session_id, speaker, commenter, comment, polarity))
 

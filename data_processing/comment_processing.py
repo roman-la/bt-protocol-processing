@@ -97,8 +97,8 @@ def __polarity_calculation(doc):
             continue
 
         if token._.negated:
-            token._.polarity = (-1.0) * polarity_lexicon[token.lemma_]
-        if token._.intensified:
+            token._.polarity = (-1) * polarity_lexicon[token.lemma_]
+        elif token._.intensified:
             token._.polarity = 1.5 * polarity_lexicon[token.lemma_]
         else:
             token._.polarity = polarity_lexicon[token.lemma_]
@@ -111,7 +111,7 @@ def __polarity_calculation(doc):
     doc_length = sum([1 for token in doc if token.pos_ != 'PUNCT'])
 
     # Calculate doc polarity with min-max-scaling
-    if doc_length > 0:
+    if doc_length > 1:
         if doc._.polarity > 0.0:
             doc._.polarity = (doc._.polarity + 1.0) / (doc_length + 1.0)
         elif doc._.polarity < 0.0:

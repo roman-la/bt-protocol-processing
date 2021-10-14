@@ -217,3 +217,14 @@ zynismus -0.3
 aussitzen -0.2
 eigenlob -0.5
 bravo 0.2
+beteiligen 0.1
+nein -0.5
+aktionismus -0.2
+stillstand -0.5
+maerz 0.0
+antiamerikanisch -0.2
+vergebliche -0.5
+gespalten -0.5
+spalten -0.5
+mangelnde -0.5
+streich -0.25

@@ -8,7 +8,7 @@ def apply_pagerank():
 
     # Create named graph
     db.cypher_query(f'CALL gds.graph.create.cypher("{graph_name}", "MATCH (m:Mdb) RETURN id(m) as id",'
-                    '"MATCH (s:Mdb)<-[:FROM]-(:Comment)-[:TO]->(t:Mdb) RETURN id(s) as source, id(t) as target")')
+                    '"MATCH (s:Mdb)<-[:FROM]-(:Comment)-[:TO]->(t:Mdb) RETURN id(s) as target, id(t) as source")')
 
     # Run pagerank on named graph and write result on each node
     db.cypher_query(f'CALL gds.pageRank.write("{graph_name}", '
@@ -24,7 +24,7 @@ def apply_eigenvector():
 
     # Create named graph
     db.cypher_query(f'CALL gds.graph.create.cypher("{graph_name}", "MATCH (m:Mdb) RETURN id(m) as id",'
-                    '"MATCH (s:Mdb)<-[:FROM]-(:Comment)-[:TO]->(t:Mdb) RETURN id(s) as source, id(t) as target")')
+                    '"MATCH (s:Mdb)<-[:FROM]-(:Comment)-[:TO]->(t:Mdb) RETURN id(s) as target, id(t) as source")')
 
     # Run eigenvector on named graph and write result on each node
     db.cypher_query(f'CALL gds.eigenvector.write("{graph_name}",'

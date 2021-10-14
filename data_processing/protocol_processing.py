@@ -28,6 +28,10 @@ def __get_comments(speeches):
         if not re.match(r'^\(.+\[.+]:.+\)$', raw_comment):
             continue
 
+        # TODO:
+        if 'Gegenruf' in raw_comment:
+            continue
+
         raw_comment = raw_comment[1:-1]  # remove parenthesis
         raw_comment = raw_comment.replace(' ', ' ')
         raw_comment = raw_comment.replace('­', '')
