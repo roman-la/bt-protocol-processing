@@ -218,7 +218,7 @@ aussitzen -0.2
 eigenlob -0.5
 bravo 0.2
 beteiligen 0.1
-nein -0.1
+nein -0.5
 aktionismus -0.2
 stillstand -0.5
 maerz 0.0
